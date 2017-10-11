@@ -3,21 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Dynamic axes generated based on min/max values of randomized data</title>
-		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<script type="text/javascript" src="../d3.js"></script>
 		<style type="text/css">
-			
-			.axis path,
-			.axis line {
-				fill: none;
-				stroke: black;
-				shape-rendering: crispEdges;
-			}
-			
-			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
-			}
-
+			/* No style rules here yet */
 		</style>
 	</head>
 	<body>
@@ -49,28 +37,26 @@
 			}
 
 			//Create scale functions
-			var xScale = d3.scale.linear()
+			var xScale = d3.scaleLinear()
 								 .domain([0, d3.max(dataset, function(d) { return d[0]; })])
 								 .range([padding, w - padding * 2]);
 
-			var yScale = d3.scale.linear()
+			var yScale = d3.scaleLinear()
 								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
 								 .range([h - padding, padding]);
 
-			var rScale = d3.scale.linear()
+			var aScale = d3.scaleSqrt()
 								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-								 .range([2, 5]);
+								 .range([0, 10]);
 
 			//Define X axis
-			var xAxis = d3.svg.axis()
+			var xAxis = d3.axisBottom()
 							  .scale(xScale)
-							  .orient("bottom")
 							  .ticks(5);
 
 			//Define Y axis
-			var yAxis = d3.svg.axis()
+			var yAxis = d3.axisLeft()
 							  .scale(yScale)
-							  .orient("left")
 							  .ticks(5);
 
 			//Create SVG element
@@ -91,7 +77,7 @@
 			   		return yScale(d[1]);
 			   })
 			   .attr("r", function(d) {
-			   		return rScale(d[1]);
+			   		return aScale(d[1]);
 			   });
 
 			//Create labels

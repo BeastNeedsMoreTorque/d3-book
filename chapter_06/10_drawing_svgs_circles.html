@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Drawing SVG circles with data</title>
-		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<script type="text/javascript" src="../d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -21,8 +21,8 @@
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
-						.attr("width", 500)
-						.attr("height", 50);
+						.attr("width", w)
+						.attr("height", h);
 
 			var circles = svg.selectAll("circle")
 			    .data(dataset)

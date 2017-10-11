@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: A dynamic delay, with more elements</title>
-		<script type="text/javascript" src="../d3/d3.v3.js"></script>
+		<script type="text/javascript" src="../d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -22,11 +22,12 @@
 							11, 12, 15, 20, 18, 17, 16, 18, 23, 25,
 							25, 16, 10, 18, 19, 14, 11, 15, 18, 19 ];
 			
-			var xScale = d3.scale.ordinal()
+			var xScale = d3.scaleBand()
 							.domain(d3.range(dataset.length))
-							.rangeRoundBands([0, w], 0.05);
+							.rangeRound([0, w])
+							.paddingInner(0.05);
 
-			var yScale = d3.scale.linear()
+			var yScale = d3.scaleLinear()
 							.domain([0, d3.max(dataset)])
 							.range([0, h]);
 			
@@ -47,12 +48,12 @@
 			   .attr("y", function(d) {
 			   		return h - yScale(d);
 			   })
-			   .attr("width", xScale.rangeBand())
+			   .attr("width", xScale.bandwidth())
 			   .attr("height", function(d) {
 			   		return yScale(d);
 			   })
 			   .attr("fill", function(d) {
-					return "rgb(0, 0, " + (d * 10) + ")";
+					return "rgb(0, 0, " + Math.round(d * 10) + ")";
 			   });
 
 			//Create labels
@@ -65,7 +66,7 @@
 			   })
 			   .attr("text-anchor", "middle")
 			   .attr("x", function(d, i) {
-			   		return xScale(i) + xScale.rangeBand() / 2;
+			   		return xScale(i) + xScale.bandwidth() / 2;
 			   })
 			   .attr("y", function(d) {
 			   		return h - yScale(d) + 14;
@@ -101,7 +102,7 @@
 					   		return yScale(d);
 					   })
 					   .attr("fill", function(d) {
-							return "rgb(0, 0, " + (d * 10) + ")";
+							return "rgb(0, 0, " + Math.round(d * 10) + ")";
 					   });
 
 					//Update all labels
@@ -116,7 +117,7 @@
 					   		return d;
 					   })
 					   .attr("x", function(d, i) {
-					   		return xScale(i) + xScale.rangeBand() / 2;
+					   		return xScale(i) + xScale.bandwidth() / 2;
 					   })
 					   .attr("y", function(d) {
 					   		return h - yScale(d) + 14;

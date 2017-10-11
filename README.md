@@ -1,23 +1,18 @@
 # d3-book
 
-These are sample code files to accompany the book “Interactive Data Visualization for the Web” by Scott Murray, published in March 2013 by O’Reilly.
+These are sample code files to accompany the book “Interactive Data Visualization for the Web, Second Edition” by Scott Murray, published in July 2017 by O’Reilly.
 
-- [O’Reilly book page](http://shop.oreilly.com/product/0636920026938.do)
-- [Online version with inline examples](http://chimera.labs.oreilly.com/books/1230000000345)
+- [O’Reilly book page](http://shop.oreilly.com/product/0636920037316.do)
 - [Author’s website](http://alignedleft.com/)
 
-
-
-### Version
-
-**Important:** Make sure you are using the correct version of these example files!  Otherwise, the examples you see here may not exactly match the ones you see in the book.
-
-This is version **1.0**.  This release matches examples seen in the first edition of the book, published March 2013.
+Always find the latest book info at: [d3book.com](http://d3book.com)
 
 
 
-### License
+## Version
 
-This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+**Important:** Make sure you are using the correct version of these sample files!  Otherwise, the code you see here may not exactly match what you see in the book.
 
-http://creativecommons.org/licenses/by-nc-nd/3.0/
+This is version **2.0** of the examples, which should sync perfectly with what appears in the second edition. (Fingers crossed.)
+
+For code shown in the **first edition of the book** (published March 2013), find version 1.0 on [the releases page](https://github.com/alignedleft/d3-book/releases).
